@@ -38,7 +38,8 @@ system("echo " pr " >> report.txt")
 awk '
 {
 count[$7]++;
-max = count[$7]
+    if (count[$7] > max) { # max ещё не задан → считается как 0
+        max = count[$7]
 }
 END{
 r = "Самый популярный URL:    "
